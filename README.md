@@ -82,7 +82,10 @@ Asegurar la compatibilidad con herramientas de desarrollo de videojuegos.
 
 🛠 Tecnologías Utilizadas
 
-🚀 Frontend: React.js, Vue.js📦 Backend: Node.js, Python (Django, Flask)🗄 Base de datos: PostgreSQL, MongoDB🖥 Integraciones: Unity, Unreal Engine, Blender
+🚀 Frontend: React.js, Vue.js
+📦 Backend: Node.js, Python (Django, Flask)
+🗄 Base de datos: PostgreSQL, MongoDB
+🖥 Integraciones: Unity, Unreal Engine, Blender
 
 ---------------------------------------------------------------------------------------------------------------------------
 
