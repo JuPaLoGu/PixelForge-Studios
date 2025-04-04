@@ -11,7 +11,7 @@ body {
 
 /* Estiliza el formulario */
 form {
-    width: 400px;
+    width: 450px;
     background-color: white;
     /* Fondo blanco dentro del formulario */
     border-radius: 8px;
@@ -128,6 +128,37 @@ form {
     /* Alinea el texto dentro del input */
     padding: 8px;
 }
+
+/* Estiliza el ícono del ojo */
+.input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* El ícono se coloca dentro del contenedor, de forma absoluta a la derecha */
+.input-container span {
+    font-size: 1.2rem;
+    color: black;
+    position: absolute;
+    right: 15px;
+    /* Alinea el ícono a la derecha del input */
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+/* Asegura que el ícono de la confirmación también sea visible */
+.input-container input {
+    padding-right: 35px;  /* Deja espacio a la derecha para el ícono */
+}
+
+/* Cuando el ícono está tachado (contraseña visible) */
+.input-container span.fa-eye-slash {
+    color: #ff005c; /* Cambio de color cuando está visible */
+}
+
+
 
 /* Estiliza el botón de inicio de sesión */
 button {
