@@ -26,11 +26,20 @@
         <br>
         <!-- Div del Formulario -->
         <div class="form-content">
+
+            <!-- Div del nombre -->
+            <div class="input-container">
+                <i class="fa-solid fa-user"></i>
+                <input type="text" name="Nombre" placeholder="Nombre de usuario">
+            </div>
+
             <!-- Div del correo -->
+            <!--
             <div class="input-container">
                 <i class="fa-solid fa-envelope"></i>
                 <input type="email" name="Correo" placeholder="Correo de usuario">
             </div>
+            -->
 
             <!-- Div de la contraseña -->
             <div class="input-container">
