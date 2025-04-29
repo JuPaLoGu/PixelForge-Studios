@@ -2,7 +2,7 @@
 $host = "localhost";
 $user = "root";
 $pass = "";
-$dbname = "login_system";
+$dbname = "pixelforgestudios";
 
 $conn = new mysqli($host, $user, $pass, $dbname);
 

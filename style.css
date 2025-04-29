@@ -1,0 +1,266 @@
+/* Hace que todo el fondo sea blanco */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+
+    /* --- Fondo desde URL --- */
+    background-image: url('https://pixelforgestudio.com/wp-content/uploads/2024/11/pixel-forge-studio-control-room.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+    /* Si la imagen tarda en cargar, un color de respaldo */
+    background-color: #ffffff;
+}
+
+/* Estiliza el formulario */
+form {
+    width: 400px;
+    background-color: white;
+    /* Fondo blanco dentro del formulario */
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    /* Sombra sutil */
+    text-align: center;
+    overflow: hidden;
+    /* Evita que elementos se desborden */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Centra todos los elementos */
+    padding-bottom: 2rem;
+    /* Solo padding abajo */
+    position: relative;
+}
+
+/* Contenedor de la barra superior con imagen y título */
+.header {
+    display: flex;
+    align-items: center;
+    /* Alinea la imagen y el texto en la misma línea */
+    justify-content: center;
+    /* Centra horizontalmente el contenido */
+    background-color: black;
+    color: white;
+    width: 100%;
+    /* Asegura que el header ocupe todo el ancho */
+    height: 100px;
+    /* Tamaño fijo del header */
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0;
+    /* Eliminamos padding extra */
+}
+
+/* Contenedor para alinear imagen y texto correctamente */
+.header-content {
+    display: flex;
+    align-items: center;
+    /* Mantiene todo alineado verticalmente */
+    gap: 15px;
+    /* Espacio entre la imagen y el texto */
+}
+
+/* Imagen alineada a la izquierda del texto */
+.header img {
+    width: 100px;
+    /* Tamaño fijo de la imagen */
+    height: auto;
+    /* Mantiene la proporción */
+    max-height: 80px;
+    /* Evita que la imagen se desborde del header */
+}
+
+/* Estiliza el título dentro del header */
+.header h2 {
+    font-family: 'Oxanium', sans-serif;
+    font-size: 1.8rem;
+    color: white;
+    margin: 0;
+    white-space: nowrap;
+    /* Evita que se rompa la línea */
+}
+
+/* Ajuste para que el contenido del formulario no quede detrás del header */
+.form-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 110px;
+    /* Baja el contenido lo suficiente para que no lo tape el header */
+}
+
+/* Contenedor para cada campo (ícono + input) */
+.input-container {
+    display: flex;
+    align-items: center;
+    /* Alinea el ícono y el input en la misma línea */
+    width: 90%;
+    /* Ajusta el ancho al formulario */
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 8px;
+    /* Espaciado interno */
+    margin-bottom: 15px;
+    /* Espacio entre cada campo */
+}
+
+/* Íconos alineados a la izquierda */
+.input-container i {
+    font-size: 1.2rem;
+    /* Tamaño del ícono */
+    color: black;
+    margin-left: 10px;
+    /* Espacio desde el borde izquierdo */
+    margin-right: 10px;
+    /* Espacio entre el ícono y el input */
+}
+
+/* Input alineado a la derecha del ícono */
+.input-container input {
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    flex: 1;
+    /* Permite que el input ocupe todo el espacio disponible */
+    text-align: left;
+    /* Alinea el texto dentro del input */
+    padding: 8px;
+}
+
+/* Estiliza el botón de inicio de sesión */
+button {
+    width: 90%;
+    padding: 10px;
+    background-color: #ff005c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+    /* Transición suave */
+    position: relative;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+    /* Sombra ligera permanente */
+}
+
+/* Efecto al pasar el mouse */
+button:hover {
+    transform: translateY(-5px);
+    /* Se eleva hacia arriba */
+    background-color: #ff5391;
+    /* Cambia el color del botón */
+    color: #efffc2;
+    /* Cambia el color del texto */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.7);
+    /* Sombra más pronunciada */
+}
+
+
+
+/* Estiliza el enlace de "¿Olvidaste tu contraseña?" */
+a {
+    font-size: 0.9rem;
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+    color: black;
+    /* Texto negro por defecto */
+    transition: color 0.4s ease-in-out;
+    /* Transición suave del color del texto */
+}
+
+/* Línea debajo del enlace (SIEMPRE visible en azul) */
+a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 2px;
+    background-color: #2077d5;
+    /* Azul inicial */
+    transform: scaleX(1);
+    /* Línea completa */
+    transform-origin: left;
+    /* La animación empieza desde la izquierda */
+    transition: transform 0.4s ease-in-out, background-color 0.4s ease-in-out;
+}
+
+/* Efecto al pasar el mouse */
+a:hover {
+    color: #fcbd40;
+    /* Cambio de color del texto */
+}
+
+/* La barra desaparece y se recarga en amarillo de IZQUIERDA a DERECHA */
+a:hover::after {
+    transform: scaleX(0);
+    /* Se contrae primero */
+    background-color: #fcbd40;
+    /* Cambia a amarillo */
+    transform-origin: left;
+    /* Se expande desde la izquierda */
+    animation: carga 0.4s forwards;
+}
+
+@keyframes carga {
+    0% {
+        transform: scaleX(0);
+    }
+
+    100% {
+        transform: scaleX(1);
+    }
+}
+
+/* Efecto inverso al quitar el mouse (DERECHA a IZQUIERDA) */
+a:not(:hover)::after {
+    transform: scaleX(0);
+    /* Se contrae */
+    background-color: #2077d5;
+    /* Vuelve a azul */
+    transform-origin: right;
+    /* Expande de derecha a izquierda */
+    animation: descarga 0.4s forwards;
+}
+
+@keyframes descarga {
+    0% {
+        transform: scaleX(0);
+    }
+
+    100% {
+        transform: scaleX(1);
+    }
+}
+
+/* Al quitar el mouse, el texto vuelve a negro */
+a:not(:hover) {
+    color: black;
+}
+
+/* Animación de la "barra*
+/* style.css */
+
+.error-message {
+    background-color: #fdecea;
+    color: #b71c1c;
+    border: 1px solid #f5c6cb;
+    padding: 10px;
+    border-radius: 4px;
+    text-align: center;
+    margin: 0 auto 20px;
+    max-width: 300px;
+  }
+  
