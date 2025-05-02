@@ -72,7 +72,7 @@ form {
 
 /* Estiliza el título dentro del header */
 .header h2 {
-    font-family: 'Oxanium', sans-serif;
+    font-family: 'Agency FB', sans-serif;
     font-size: 1.8rem;
     color: white;
     margin: 0;
@@ -162,13 +162,15 @@ form {
 
 /* Estiliza el botón de inicio de sesión */
 button {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 700;
     width: 90%;
     padding: 10px;
     background-color: #ff005c;
     color: white;
     border: none;
     border-radius: 5px;
-    font-size: 1rem;
+    font-size: 1.25rem;
     cursor: pointer;
     margin-top: 10px;
     transition: all 0.3s ease;
@@ -194,7 +196,9 @@ button:hover {
 
 /* Estiliza el enlace de "¿Olvidaste tu contraseña?" */
 a {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 0.9rem;
+    font-weight: 500;
     text-decoration: none;
     position: relative;
     display: inline-block;
