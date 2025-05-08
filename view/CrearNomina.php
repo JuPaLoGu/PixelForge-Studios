@@ -38,30 +38,3 @@ $error = $_GET['error'] ?? '';
     </form>
 </body>
 </html>
-<?php
-session_start();
-if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'rrhh') {
-    header('Location: acceso_denegado.php');
-    exit;
-}
-?>
-
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Crear Nómina</title>
-</head>
-<body>
-    <h2>Crear Nueva Nómina</h2>
-    <form action="../controller/NominaController.php" method="POST">
-        <label for="fecha_inicio">Fecha de Inicio:</label>
-        <input type="date" id="fecha_inicio" name="fecha_inicio" required><br><br>
-
-        <label for="fecha_fin">Fecha de Fin:</label>
-        <input type="date" id="fecha_fin" name="fecha_fin" required><br><br>
-
-        <button type="submit">Generar Nómina</button>
-    </form>
-</body>
-</html>

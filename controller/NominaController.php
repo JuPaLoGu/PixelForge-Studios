@@ -21,26 +21,26 @@ $inicio = $_POST['fecha_inicio'];
 $fin = $_POST['fecha_fin'];
 
 try {
-    // Iniciar transacción
+    //Iniciar transacción
     $pdo->beginTransaction();
 
-    // 1. Crear la nómina
+    //Crear la nómina
     $nomina_id = Nomina::crear($pdo, $inicio, $fin);
 
-    // 2. Obtener empleados
+    //Obtener empleados
     $stmt = $pdo->query("SELECT id FROM usuarios WHERE rol = 'empleado'");
     $empleados = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    // 3. Asignar bonificaciones (ejemplo: monto aleatorio entre 100-300)
+    //Asignar bonificaciones
     foreach ($empleados as $emp) {
-        $monto_bono = rand(100, 300); // Puedes cambiar esta lógica
+        $monto_bono = 300000;
         NominaBono::asignarBono($pdo, $nomina_id, $emp['id'], $monto_bono);
     }
 
-    // 4. Generar reporte
-    ReporteNomina::generar($pdo, "Bonificaciones generadas automáticamente.", $nomina_id);
+    //Generar reporte
+    ReporteNomina::generar($pdo, "Bonificaciones.", $nomina_id);
 
-    // Confirmar
+    //Confirmar
     $pdo->commit();
     header('Location: ../view/nomina_exito.php');
     exit;
@@ -48,4 +48,5 @@ try {
 } catch (Exception $e) {
     $pdo->rollBack();
     die("Error al procesar la nómina: " . $e->getMessage());
+    exit;
 }
