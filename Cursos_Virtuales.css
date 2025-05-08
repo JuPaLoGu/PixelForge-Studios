@@ -1,0 +1,274 @@
+body {
+    margin: 0;
+    font-family: 'IBM Plex Sans Condensed', sans-serif;
+    background: linear-gradient(116deg, #ff004f, #ff009a);
+    background-color: #ff004f;
+}
+
+.topbar {
+    font-family: 'IBM Plex Sans Condensed', sans-serif;
+    font-size: large;
+    background-color: #000000;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+.topbar-left {
+    background-color: #ff004f;
+    font-size: x-large;
+    border-radius: 4px;
+    height: 100%;
+    text-align: center;
+    z-index: 1;
+    padding: 5px 20px;
+    display: inline-block;
+    white-space: nowrap;
+    width: auto;
+}
+
+.logo,
+.topbar-center,
+.topbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    flex: 1;
+}
+
+.logo a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.topbar-center {
+    flex: 14;
+    justify-content: flex-end;
+}
+
+.topbar-right {
+    flex: 1;
+    justify-content: end;
+}
+
+.topbar nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s ease-in-out;
+}
+
+.topbar nav a:hover {
+    color: #f73d66;
+}
+
+.input-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    color: white;
+    transition: color 0.3s ease-in-out;
+}
+
+.input-container:hover {
+    color: #f73d66;
+}
+
+.input-container i {
+    font-size: 40px;
+}
+
+.input-container span {
+    font-size: 18px;
+    margin-top: 2px;
+}
+
+/* Menú desplegable */
+.menu-desplegable {
+    display: none;
+    /* Oculto por defecto */
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 8px;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 150px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    text-align: left;
+}
+
+/* Mostrar el menú cuando se pasa el mouse sobre el contenedor */
+.input-container:hover .menu-desplegable {
+    display: block;
+}
+
+/* Mostrar el menú cuando se hace clic sobre el contenedor */
+.input-container.show-menu .menu-desplegable {
+    display: block;
+}
+
+/* Estilo de los enlaces del menú */
+.menu-desplegable a {
+    display: block;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+    transition: background 0.2s, color 0.3s;
+}
+
+.menu-desplegable a:hover {
+    background: #f0f0f0;
+    color: #f73d66;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 50px
+}
+
+nav a {
+    display: inline-block;
+    text-align: center;
+}
+
+nav a.salto-linea {
+    white-space: normal;
+}
+
+.inicio-container {
+    display: flex;
+    flex-wrap: wrap;
+    /* Esto permite el salto de línea automático */
+    height: 100vh;
+}
+
+/* Cada columna ocupa el 50% en pantallas grandes */
+.logo-container,
+.botones-cursos {
+    flex: 1 1 50%;
+    display: flex;
+    align-items: center;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+.logo-container img {
+    width: 100%;
+    max-width: 90%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.botones-cursos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+
+.botones-cursos button {
+    background-color: white;
+    color: black;
+    border: 3px solid black;
+    border-radius: 12px;
+    padding: 20px 40px;
+    margin: 20px 0;
+    font-family: 'IBM Plex Sans Condensed', sans-serif;
+    font-weight: bolder;
+    font-size: xx-large;
+    cursor: pointer;
+    text-align: center;
+    width: 350px;
+    /* puedes ajustar este ancho si quieres */
+    transition: background-color 0.3s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+
+.botones-cursos button:hover {
+    transform: translateY(-5px);
+    /* Se eleva hacia arriba */
+    background-color: #ff004f;
+    border-color: #ff004f;
+    /* Cambia el color del botón */
+    color: #efffc2;
+    /* Cambia el color del texto */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.7);
+    /* Sombra más pronunciada */
+}
+
+/* Ocultar cualquier elemento */
+.oculto {
+    display: none;
+}
+
+/* Estilo de las secciones desplegadas */
+.seccion {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Contenedor de secciones centrado como los botones */
+.contenido-secciones {
+    font-family: 'IBM Plex Sans Condensed', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+    padding: 200px;
+    box-sizing: border-box;
+}
+
+.seccion h1 {
+    font-family: 'Agency FB', sans-serif;
+    font-size: calc(1.375rem + 1.5vw);
+}
+
+.seccion p {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 450;
+}
+
+.boton-volver {
+    margin-top: 30px;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border: none;
+    background-color: #f73d66;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+
+.boton-volver:hover {
+    transform: translateY(-5px);
+    /* Se eleva hacia arriba */
+    background-color: #ff004f;
+    border-color: #ff004f;
+    /* Cambia el color del botón */
+    color: #efffc2;
+    /* Cambia el color del texto */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.7);
+    /* Sombra más pronunciada */
+}

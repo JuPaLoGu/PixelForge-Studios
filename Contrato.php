@@ -7,10 +7,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Progreso</title>
+    <title>Contrato</title>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="Progreso.css">
+    <link rel="stylesheet" href="Contrato.css">
 
 </head>
 
@@ -18,28 +18,26 @@
 
     <div class="topbar">
         <div class="logo">
-            <a href="Principal_RRHH.php">
+            <a href="">
                 <img src="https://pixelforgestudio.com/wp-content/uploads/2024/11/Pixel-Forge-Studio-Header-Logo.png"
                     alt="LogoPixelForge">
             </a>
         </div>
         <div class="topbar-left">
-            <label for="">Progreso</label>
+            <label for="">Contrato</label>
         </div>
         <div class="topbar-center">
             <nav>
-                <a href="Nomina.php">Nomina</a>
-                <a href="Progreso.php">Progreso</a>
-                <a href="Metas_Empleados.php" class="salto-linea">Metas de<br>empleados</a>
-                <a href="Contratacion.php">Contratación</a>
-                <a href="Beneficios_Metas.php" class="salto-linea">Beneficios<br>por metas</a>
+                <a href="Cursos_Virtuales.php" class="salto-linea">Cursos<br>virtuales</a>
+                <a href="Contrato.php">Contrato</a>
+                <a href="Programas_Bienestar.php" class="salto-linea">Programas de<br>bienestar</a>
             </nav>
 
         </div>
         <div class="topbar-right">
             <div class="input-container" id="usuario">
                 <i class="fa-solid fa-user"></i>
-                <span>RRHH</span>
+                <span>Empleado</span>
                 <div class="menu-desplegable" id="menu">
                     <a href="#">Perfil</a>
                     <a href="#">Cerrar sesión</a>

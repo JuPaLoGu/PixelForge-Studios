@@ -1,0 +1,191 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(116deg, #ff004f, #ff009a);
+    background-color: #ff004f;}
+
+.topbar {
+    font-family: 'IBM Plex Sans Condensed', sans-serif;
+    font-size: large;
+    background-color: #000000;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-sizing: border-box;
+}
+.topbar-left {
+    background-color: #ff004f;
+    font-size: xx-large;
+    border-radius: 4px; 
+    height: 100%;
+    text-align: center;
+    z-index: 1;
+    padding: 10px 20px; 
+    display: inline-block;
+    white-space: nowrap;
+    width: auto;
+}
+
+.logo,
+.topbar-center,
+.topbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    flex: 1;
+}
+
+.logo a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.topbar-center {
+    flex: 14;
+    justify-content: flex-end;
+}
+
+.topbar-right {
+    flex: 1;
+    justify-content: end;
+}
+
+.topbar nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s ease-in-out;
+}
+
+.topbar nav a:hover {
+    color: #f73d66;
+}
+
+.input-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    color: white;
+    transition: color 0.3s ease-in-out;
+}
+
+.input-container:hover {
+    color: #f73d66;
+}
+
+.input-container i {
+    font-size: 40px;
+}
+
+.input-container span {
+    font-size: 18px;
+    margin-top: 2px;
+}
+
+/* Menú desplegable */
+.menu-desplegable {
+    display: none; /* Oculto por defecto */
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 8px;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 150px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    text-align: left;
+  }
+  
+  /* Mostrar el menú cuando se pasa el mouse sobre el contenedor */
+  .input-container:hover .menu-desplegable {
+    display: block;
+  }
+  
+  /* Mostrar el menú cuando se hace clic sobre el contenedor */
+  .input-container.show-menu .menu-desplegable {
+    display: block;
+  }
+  
+  /* Estilo de los enlaces del menú */
+  .menu-desplegable a {
+    display: block;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+    transition: background 0.2s, color 0.3s;
+  }
+  
+  .menu-desplegable a:hover {
+    background: #f0f0f0;
+    color: #f73d66;
+  }
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 50px
+}
+
+nav a {
+    display: inline-block;
+    text-align: center;
+}
+
+nav a.salto-linea {
+    white-space: normal;
+}
+
+.inicio-container {
+    display: flex;
+    flex-wrap: wrap;
+    /* Esto permite el salto de línea automático */
+    height: 100vh;
+}
+
+/* Cada columna ocupa el 50% en pantallas grandes */
+.logo-container,
+.texto-container {
+    flex: 1 1 50%;
+    display: flex;
+    align-items: center;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+.logo-container img {
+    width: 100%;
+    max-width: 90%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.texto-container h1 {
+    font-family: 'Agency FB', sans-serif;
+    font-size: calc(1.375rem + 1.5vw);
+    text-transform: uppercase;
+}
+
+.texto-container {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 450;
+    font-size: 1.25rem;
+    flex: 1 1 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px;
+    box-sizing: border-box;
+    text-align: left;
+}
