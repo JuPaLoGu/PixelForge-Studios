@@ -105,7 +105,7 @@
 
   <!-- SCRIPT PARA INTERACTIVIDAD -->
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener("DOMContentLoaded", function() {
       const usuario = document.getElementById("usuario");
       const menu = document.getElementById("menu");
       const toggleBtn = document.querySelector(".menu-toggle");
@@ -136,7 +136,7 @@
       }
 
       // Alternar visibilidad del menú de usuario (RRHH)
-      usuario.addEventListener("click", function (e) {
+      usuario.addEventListener("click", function(e) {
         e.stopPropagation();
         const isOpen = usuario.classList.toggle("show-menu");
         usuario.classList.toggle("active");
@@ -150,7 +150,7 @@
       });
 
       // Cerrar menús si se hace clic fuera
-      document.addEventListener("click", function (e) {
+      document.addEventListener("click", function(e) {
         const clickEnUsuario = usuario.contains(e.target);
         const clickEnMenuHamburguesa = toggleBtn.contains(e.target) || mobileNav.contains(e.target);
 
@@ -168,7 +168,7 @@
       });
 
       // Mostrar u ocultar el menú móvil (hamburguesa)
-      toggleBtn.addEventListener("click", function (e) {
+      toggleBtn.addEventListener("click", function(e) {
         e.stopPropagation();
 
         if (document.body.classList.contains("menu-open")) {
@@ -194,13 +194,13 @@
       };
 
       // Aplicar cambios al botón hamburguesa
-      toggleBtn.addEventListener("click", function () {
+      toggleBtn.addEventListener("click", function() {
         const isOpen = toggleBtn.classList.contains("active");
         updateButtonColor(toggleBtn, !isOpen);
       });
 
       // Aplicar cambios al botón del usuario
-      usuario.addEventListener("click", function () {
+      usuario.addEventListener("click", function() {
         const isOpen = usuario.classList.contains("active");
         updateButtonColor(usuario, !isOpen);
       });

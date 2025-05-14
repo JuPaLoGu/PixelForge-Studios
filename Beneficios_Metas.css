@@ -2,20 +2,26 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: linear-gradient(116deg, #ff004f, #ff009a); /* Fondo degradado de color */
-    background-color: #ff004f; /* Color de fondo sólido */
-    min-height: 100vh; /* Hace que el body ocupe toda la altura de la ventana */
+    background: linear-gradient(116deg, #ff004f, #ff009a);
+    /* Fondo degradado de color */
+    background-color: #ff004f;
+    /* Color de fondo sólido */
+    min-height: 100vh;
+    /* Hace que el body ocupe toda la altura de la ventana */
     display: flex;
-    flex-direction: column; /* Distribuye el contenido en columna */
+    flex-direction: column;
+    /* Distribuye el contenido en columna */
 }
 
 body.menu-open {
-    padding-top: 220px; /* Altura del menú móvil al abrir */
+    padding-top: 220px;
+    /* Altura del menú móvil al abrir */
 }
 
 /* ------------------- MAIN ------------------- */
 main.inicio-container {
-    flex: 1; /* Hace que el main ocupe el espacio disponible */
+    flex: 1;
+    /* Hace que el main ocupe el espacio disponible */
 }
 
 /* ------------------- TOPBAR ------------------- */
@@ -23,22 +29,30 @@ main.inicio-container {
     font-family: 'IBM Plex Sans Condensed', sans-serif;
     display: flex;
     font-size: large;
-    justify-content: space-between; /* Espacio entre los elementos */
-    align-items: center; /* Centra verticalmente los elementos */
-    background-color: #000; /* Color de fondo de la barra */
+    justify-content: space-between;
+    /* Espacio entre los elementos */
+    align-items: center;
+    /* Centra verticalmente los elementos */
+    background-color: #000;
+    /* Color de fondo de la barra */
     color: white;
     padding: 10px 20px;
-    position: fixed; /* Posición fija para que permanezca en la parte superior */
+    position: fixed;
+    /* Posición fija para que permanezca en la parte superior */
     width: 100%;
-    top: 0; /* Pegado al borde superior */
-    z-index: 1000; /* Para asegurarse de que esté por encima de otros elementos */
+    top: 0;
+    /* Pegado al borde superior */
+    z-index: 1000;
+    /* Para asegurarse de que esté por encima de otros elementos */
     box-sizing: border-box;
-    flex-wrap: nowrap; /* Evita que los elementos se envuelvan en la barra */
+    flex-wrap: nowrap;
+    /* Evita que los elementos se envuelvan en la barra */
 }
 
 /* Logo en la topbar */
 .logo img {
-    height: 70px; /* Altura del logo */
+    height: 70px;
+    /* Altura del logo */
 }
 
 /* Sección izquierda de la topbar */
@@ -52,22 +66,27 @@ main.inicio-container {
     white-space: nowrap;
     margin: 0 15px;
     display: inline-block;
-    justify-content: flex-start; /* Alinea todo a la izquierda */
-    flex-shrink: 0; /* Evita que se reduzca el tamaño del contenedor */
+    justify-content: flex-start;
+    /* Alinea todo a la izquierda */
+    flex-shrink: 0;
+    /* Evita que se reduzca el tamaño del contenedor */
 }
 
 /* Centro de la topbar (menú de navegación) */
 .topbar-center {
     display: flex;
-    justify-content: flex-end; /* Alinea las opciones a la derecha */
+    justify-content: flex-end;
+    /* Alinea las opciones a la derecha */
     align-items: center;
-    flex-grow: 1; /* Toma todo el espacio disponible */
+    flex-grow: 1;
+    /* Toma todo el espacio disponible */
 }
 
 .topbar-center nav {
     display: flex;
     align-items: center;
-    gap: 50px; /* Espacio entre los enlaces */
+    gap: 50px;
+    /* Espacio entre los enlaces */
     color: white;
     text-decoration: none;
     margin: 0 20px;
@@ -91,11 +110,13 @@ nav a {
     color: white;
     text-decoration: none;
     margin: 0 10px;
-    transition: color 0.3s ease-in-out; /* Transición para el cambio de color */
+    transition: color 0.3s ease-in-out;
+    /* Transición para el cambio de color */
 }
 
 nav a:hover {
-    color: #f73d66; /* Color al hacer hover */
+    color: #f73d66;
+    /* Color al hacer hover */
 }
 
 /* ------------------- USUARIO ------------------- */
@@ -109,15 +130,18 @@ nav a:hover {
 
 /* Estilos del botón para abrir el menú */
 .menu-toggle {
-    display: none; /* Oculto por defecto */
+    display: none;
+    /* Oculto por defecto */
     font-size: 24px;
     cursor: pointer;
     color: white;
-    transition: color 0.3s ease; /* Transición para el cambio de color */
+    transition: color 0.3s ease;
+    /* Transición para el cambio de color */
 }
 
 .menu-toggle:hover {
-    color: #f73d66; /* Color al hacer hover */
+    color: #f73d66;
+    /* Color al hacer hover */
 }
 
 /* Estilos para el contenedor del span de usuario */
@@ -132,28 +156,33 @@ nav a:hover {
 }
 
 .input-container:hover {
-    color: #f73d66; /* Color al hacer hover */
+    color: #f73d66;
+    /* Color al hacer hover */
 }
 
 .input-container i {
-    font-size: 40px; /* Tamaño del icono */
+    font-size: 40px;
+    /* Tamaño del icono */
 }
 
 .input-container span {
-    font-size: 18px; /* Ajuste de tamaño del texto */
+    font-size: 18px;
+    /* Ajuste de tamaño del texto */
     margin-top: 2px;
 }
 
 /* Menú desplegable de usuario */
 .menu-desplegable {
-    display: none; /* Oculto por defecto */
+    display: none;
+    /* Oculto por defecto */
     position: absolute;
     top: 100%;
     right: 0;
     background: white;
     border-radius: 4px;
     width: 160px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Sombra */
     z-index: 999;
     flex-direction: column;
     color: #333;
@@ -167,23 +196,27 @@ nav a:hover {
 .menu-desplegable span {
     padding: 10px;
     font-weight: bold;
-    background: #f0f0f0; /* Fondo de la cabecera del menú */
+    background: #f0f0f0;
+    /* Fondo de la cabecera del menú */
     text-align: center;
 }
 
 .menu-desplegable a {
     padding: 10px;
     text-decoration: none;
-    color: #333; /* Color del texto */
+    color: #333;
+    /* Color del texto */
 }
 
 .menu-desplegable a:hover {
-    background-color: #eee; /* Fondo cuando se pasa el cursor */
+    background-color: #eee;
+    /* Fondo cuando se pasa el cursor */
 }
 
 /* ------------------- MENÚ MÓVIL ------------------- */
 .mobile-menu {
-    display: none; /* Oculto por defecto */
+    display: none;
+    /* Oculto por defecto */
     flex-direction: column;
     background: #000000;
     padding: 10px 20px;
@@ -192,7 +225,8 @@ nav a:hover {
     left: 0;
     right: 0;
     z-index: 999;
-    animation: slideDown 0.4s ease; /* Animación para mostrar el menú */
+    animation: slideDown 0.4s ease;
+    /* Animación para mostrar el menú */
 }
 
 /* Animación de deslizamiento hacia abajo */
@@ -230,12 +264,14 @@ nav a:hover {
 .mobile-menu a {
     color: white;
     padding: 12px 0;
-    border-bottom: 1px solid #333; /* Línea de separación entre elementos */
+    border-bottom: 1px solid #333;
+    /* Línea de separación entre elementos */
     text-decoration: none;
 }
 
 .mobile-menu a:hover {
-    background-color: #000000; /* Fondo al hacer hover */
+    background-color: #000000;
+    /* Fondo al hacer hover */
 }
 
 /* Estilo del menú móvil cuando está activo */
@@ -248,7 +284,8 @@ nav a:hover {
     display: flex;
     flex-wrap: nowrap;
     height: 100vh;
-    margin-top: 70px; /* Espacio debajo de la barra superior */
+    margin-top: 70px;
+    /* Espacio debajo de la barra superior */
 }
 
 .logo-container,
@@ -278,14 +315,17 @@ nav a:hover {
 
 .texto-container h1 {
     font-family: 'Agency FB', sans-serif;
-    font-size: calc(1.375rem + 1.5vw); /* Tamaño de fuente dinámico */
-    text-transform: uppercase; /* Mayúsculas en el texto */
+    font-size: calc(1.375rem + 1.5vw);
+    /* Tamaño de fuente dinámico */
+    text-transform: uppercase;
+    /* Mayúsculas en el texto */
 }
 
 .texto-container {
     font-family: 'Open Sans', sans-serif;
     font-weight: 300;
-    font-size: 1.25rem; /* Tamaño de fuente */
+    font-size: 1.25rem;
+    /* Tamaño de fuente */
     flex: 1 1 50%;
     display: flex;
     flex-direction: column;
@@ -299,8 +339,10 @@ nav a:hover {
 /* ------------------- FOOTER ------------------- */
 footer {
     width: 100%;
-    margin-top: auto; /* Hace que el footer se quede al final de la página */
-    background: transparent; /* Fondo transparente para que se vea el gradiente */
+    margin-top: auto;
+    /* Hace que el footer se quede al final de la página */
+    background: transparent;
+    /* Fondo transparente para que se vea el gradiente */
 }
 
 footer img {
@@ -312,27 +354,32 @@ footer img {
 /* Estilos para pantallas más pequeñas */
 @media (max-width: 1024px) {
     .topbar-left {
-        font-size: 14px; /* Reduce el tamaño de la fuente */
+        font-size: 25px;
+        /* Reduce el tamaño de la fuente */
     }
 
     .topbar-center nav {
-        gap: 15px; /* Reduce el espacio entre los enlaces */
+        gap: 15px;
+        /* Reduce el espacio entre los enlaces */
     }
 }
 
 /* Estilos para pantallas móviles */
 @media (max-width: 768px) {
     .topbar-center nav {
-        display: none; /* Oculta los enlaces de navegación */
+        display: none;
+        /* Oculta los enlaces de navegación */
     }
 
     .menu-toggle {
-        display: block; /* Muestra el botón de menú en móviles */
+        display: block;
+        /* Muestra el botón de menú en móviles */
     }
 
     .inicio-container {
         flex-direction: column;
-        height: auto; /* Ajusta el alto para el contenido móvil */
+        height: auto;
+        /* Ajusta el alto para el contenido móvil */
     }
 
     .logo-container,
@@ -345,7 +392,8 @@ footer img {
     }
 
     .texto-container h1 {
-        font-size: 1.8rem; /* Tamaño de fuente más pequeño */
+        font-size: 1.8rem;
+        /* Tamaño de fuente más pequeño */
     }
 
     .texto-container p {
@@ -353,10 +401,12 @@ footer img {
     }
 
     .topbar-right {
-        flex-direction: row-reverse; /* Cambia el orden en móviles */
+        flex-direction: row-reverse;
+        /* Cambia el orden en móviles */
     }
 
     .topbar-left {
-        margin-bottom: 10px; /* Agrega un margen inferior */
+        margin-bottom: 10px;
+        /* Agrega un margen inferior */
     }
 }

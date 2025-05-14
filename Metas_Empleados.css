@@ -1,75 +1,150 @@
+/* ------------------- BODY ------------------- */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
     background: linear-gradient(116deg, #ff004f, #ff009a);
+    /* Fondo degradado de color */
     background-color: #ff004f;
+    /* Color de fondo sólido */
+    min-height: 100vh;
+    /* Hace que el body ocupe toda la altura de la ventana */
+    display: flex;
+    flex-direction: column;
+    /* Distribuye el contenido en columna */
 }
 
+body.menu-open {
+    padding-top: 220px;
+    /* Altura del menú móvil al abrir */
+}
+
+/* ------------------- MAIN ------------------- */
+main.inicio-container {
+    flex: 1;
+    /* Hace que el main ocupe el espacio disponible */
+}
+
+/* ------------------- TOPBAR ------------------- */
 .topbar {
     font-family: 'IBM Plex Sans Condensed', sans-serif;
+    display: flex;
     font-size: large;
-    background-color: #000000;
+    justify-content: space-between;
+    /* Espacio entre los elementos */
+    align-items: center;
+    /* Centra verticalmente los elementos */
+    background-color: #000;
+    /* Color de fondo de la barra */
     color: white;
     padding: 10px 20px;
-    display: flex;
-    align-items: center;
     position: fixed;
+    /* Posición fija para que permanezca en la parte superior */
     width: 100%;
     top: 0;
+    /* Pegado al borde superior */
     z-index: 1000;
+    /* Para asegurarse de que esté por encima de otros elementos */
     box-sizing: border-box;
+    flex-wrap: nowrap;
+    /* Evita que los elementos se envuelvan en la barra */
 }
 
+/* Logo en la topbar */
+.logo img {
+    height: 70px;
+    /* Altura del logo */
+}
+
+/* Sección izquierda de la topbar */
 .topbar-left {
-    background-color: #ff004f;
+    font-family: 'IBM Plex Sans Condensed', sans-serif;
     font-size: x-large;
-    border-radius: 4px;
-    height: 100%;
     text-align: center;
-    z-index: 1;
+    background-color: #ff004f;
+    border-radius: 4px;
     padding: 5px 20px;
-    display: inline-block;
     white-space: nowrap;
-    width: auto;
+    margin: 0 15px;
+    display: inline-block;
+    justify-content: flex-start;
+    /* Alinea todo a la izquierda */
+    flex-shrink: 0;
+    /* Evita que se reduzca el tamaño del contenedor */
 }
 
-.logo,
-.topbar-center,
-.topbar-right {
+/* Centro de la topbar (menú de navegación) */
+.topbar-center {
+    display: flex;
+    justify-content: flex-end;
+    /* Alinea las opciones a la derecha */
+    align-items: center;
+    flex-grow: 1;
+    /* Toma todo el espacio disponible */
+}
+
+.topbar-center nav {
     display: flex;
     align-items: center;
-}
-
-.logo {
-    flex: 1;
-}
-
-.logo a {
+    gap: 50px;
+    /* Espacio entre los enlaces */
+    color: white;
     text-decoration: none;
-    cursor: pointer;
+    margin: 0 20px;
+    font-size: 16px;
 }
 
-.topbar-center {
-    flex: 14;
-    justify-content: flex-end;
+.topbar-center .input-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
 }
 
-.topbar-right {
-    flex: 1;
-    justify-content: end;
-}
-
-.topbar nav a {
+/* Estilo para los enlaces de la navegación */
+nav a {
+    font-family: 'IBM Plex Sans Condensed', sans-serif;
+    font-size: large;
+    text-align: center;
     color: white;
     text-decoration: none;
     margin: 0 10px;
     transition: color 0.3s ease-in-out;
+    /* Transición para el cambio de color */
 }
 
-.topbar nav a:hover {
+nav a:hover {
     color: #f73d66;
+    /* Color al hacer hover */
 }
 
+/* ------------------- USUARIO ------------------- */
+.topbar-right {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 10px;
+    flex: 0.12;
+}
+
+/* Estilos del botón para abrir el menú */
+.menu-toggle {
+    display: none;
+    /* Oculto por defecto */
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+    transition: color 0.3s ease;
+    /* Transición para el cambio de color */
+}
+
+.menu-toggle:hover {
+    color: #f73d66;
+    /* Color al hacer hover */
+}
+
+/* Estilos para el contenedor del span de usuario */
 .input-container {
     position: relative;
     display: flex;
@@ -82,81 +157,137 @@ body {
 
 .input-container:hover {
     color: #f73d66;
+    /* Color al hacer hover */
 }
 
 .input-container i {
     font-size: 40px;
+    /* Tamaño del icono */
 }
 
 .input-container span {
     font-size: 18px;
+    /* Ajuste de tamaño del texto */
     margin-top: 2px;
 }
 
-/* Menú desplegable */
+/* Menú desplegable de usuario */
 .menu-desplegable {
     display: none;
     /* Oculto por defecto */
     position: absolute;
     top: 100%;
     right: 0;
-    margin-top: 8px;
     background: white;
-    border: 1px solid #ccc;
     border-radius: 4px;
-    width: 150px;
+    width: 160px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    z-index: 100;
-    text-align: left;
-}
-
-/* Mostrar el menú cuando se pasa el mouse sobre el contenedor */
-.input-container:hover .menu-desplegable {
-    display: block;
-}
-
-/* Mostrar el menú cuando se hace clic sobre el contenedor */
-.input-container.show-menu .menu-desplegable {
-    display: block;
-}
-
-/* Estilo de los enlaces del menú */
-.menu-desplegable a {
-    display: block;
-    padding: 10px;
+    /* Sombra */
+    z-index: 999;
+    flex-direction: column;
     color: #333;
-    text-decoration: none;
-    transition: background 0.2s, color 0.3s;
 }
 
-.menu-desplegable a:hover {
-    background: #f0f0f0;
-    color: #f73d66;
-}
-
-nav {
+/* Menú desplegable visible cuando se activa */
+.input-container.show-menu .menu-desplegable {
     display: flex;
-    align-items: center;
-    gap: 50px
 }
 
-nav a {
-    display: inline-block;
+.menu-desplegable span {
+    padding: 10px;
+    font-weight: bold;
+    background: #f0f0f0;
+    /* Fondo de la cabecera del menú */
     text-align: center;
 }
 
-nav a.salto-linea {
-    white-space: normal;
+.menu-desplegable a {
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+    /* Color del texto */
 }
 
+.menu-desplegable a:hover {
+    background-color: #eee;
+    /* Fondo cuando se pasa el cursor */
+}
+
+/* ------------------- MENÚ MÓVIL ------------------- */
+.mobile-menu {
+    display: none;
+    /* Oculto por defecto */
+    flex-direction: column;
+    background: #000000;
+    padding: 10px 20px;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    animation: slideDown 0.4s ease;
+    /* Animación para mostrar el menú */
+}
+
+/* Animación de deslizamiento hacia abajo */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animación de deslizamiento hacia arriba (para cerrar el menú) */
+@keyframes slideUp {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(-10%);
+    }
+}
+
+/* Clase para animar el menú móvil al cerrarse */
+.mobile-menu.closing {
+    animation: slideUp 0.3s ease forwards;
+}
+
+/* Estilo de los enlaces en el menú móvil */
+.mobile-menu a {
+    color: white;
+    padding: 12px 0;
+    border-bottom: 1px solid #333;
+    /* Línea de separación entre elementos */
+    text-decoration: none;
+}
+
+.mobile-menu a:hover {
+    background-color: #000000;
+    /* Fondo al hacer hover */
+}
+
+/* Estilo del menú móvil cuando está activo */
+.mobile-menu.active {
+    display: flex;
+}
+
+/* ------------------- MAIN ------------------- */
 .inicio-container {
     display: flex;
-    flex-wrap: wrap;
-    /* Esto permite el salto de línea automático */
+    flex-wrap: nowrap;
     height: 100vh;
+    margin-top: 70px;
+    /* Espacio debajo de la barra superior */
 }
 
-/* Cada columna ocupa el 50% en pantallas grandes */
 .logo-container,
 .texto-container {
     flex: 1 1 50%;
@@ -166,6 +297,7 @@ nav a.salto-linea {
     box-sizing: border-box;
 }
 
+/* Estilos para la imagen del logo */
 .logo-container img {
     width: 100%;
     max-width: 90%;
@@ -173,16 +305,27 @@ nav a.salto-linea {
     object-fit: contain;
 }
 
+/* Estilo para el contenedor de texto */
+.texto-container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+}
+
 .texto-container h1 {
     font-family: 'Agency FB', sans-serif;
     font-size: calc(1.375rem + 1.5vw);
+    /* Tamaño de fuente dinámico */
     text-transform: uppercase;
+    /* Mayúsculas en el texto */
 }
 
 .texto-container {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-weight: 450;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
     font-size: 1.25rem;
+    /* Tamaño de fuente */
     flex: 1 1 50%;
     display: flex;
     flex-direction: column;
@@ -191,4 +334,79 @@ nav a.salto-linea {
     padding: 40px;
     box-sizing: border-box;
     text-align: left;
+}
+
+/* ------------------- FOOTER ------------------- */
+footer {
+    width: 100%;
+    margin-top: auto;
+    /* Hace que el footer se quede al final de la página */
+    background: transparent;
+    /* Fondo transparente para que se vea el gradiente */
+}
+
+footer img {
+    width: 100%;
+    display: block;
+}
+
+/* ------------------- RESPONSIVE ------------------- */
+/* Estilos para pantallas más pequeñas */
+@media (max-width: 1024px) {
+    .topbar-left {
+        font-size: 25px;
+        /* Reduce el tamaño de la fuente */
+    }
+
+    .topbar-center nav {
+        gap: 15px;
+        /* Reduce el espacio entre los enlaces */
+    }
+}
+
+/* Estilos para pantallas móviles */
+@media (max-width: 768px) {
+    .topbar-center nav {
+        display: none;
+        /* Oculta los enlaces de navegación */
+    }
+
+    .menu-toggle {
+        display: block;
+        /* Muestra el botón de menú en móviles */
+    }
+
+    .inicio-container {
+        flex-direction: column;
+        height: auto;
+        /* Ajusta el alto para el contenido móvil */
+    }
+
+    .logo-container,
+    .texto-container {
+        flex: 1 1 100%;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .texto-container h1 {
+        font-size: 1.8rem;
+        /* Tamaño de fuente más pequeño */
+    }
+
+    .texto-container p {
+        font-size: 1rem;
+    }
+
+    .topbar-right {
+        flex-direction: row-reverse;
+        /* Cambia el orden en móviles */
+    }
+
+    .topbar-left {
+        margin-bottom: 10px;
+        /* Agrega un margen inferior */
+    }
 }
