@@ -1,0 +1,67 @@
+body {
+    background-color: #FFF0F5; /* rosa muy claro */
+    color: #4A4A4A;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 20px;
+    margin: 0;
+}
+
+h2 {
+    color: #D81B60; /* rosa fuerte */
+    border-bottom: 2px solid #D81B60;
+    padding-bottom: 5px;
+}
+
+h3 {
+    color: #C2185B; /* tono intermedio de rosa */
+}
+
+a {
+    color: #D81B60;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Botones principales */
+button {
+    background-color: #D81B60; /* rosa fuerte */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #C2185B;
+}
+
+/* Formularios */
+form {
+    margin-top: 20px;
+}
+
+/* Enlaces de documentos */
+p a {
+    background-color: #F8BBD0; /* rosa claro */
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+/* Bloqueo de acceso (mensaje) */
+p strong {
+    color: #B71C1C;
+    background-color: #FFE4E1;
+    padding: 10px;
+    border-radius: 5px;
+    display: inline-block;
+}
