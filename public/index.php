@@ -47,7 +47,7 @@
         </div>
 
         <button type="submit">Iniciar sesión</button><br><br>
-        <a href="CambiarContraseña.php">¿Olvidaste tu contraseña?</a><br>
+        <a href="Cambio_contrasenia.php">¿Olvidaste tu contraseña?</a><br>
         <a href="registro.php">¿No tienes cuenta? Regístrate aquí</a>
       </div>
     </form>
@@ -82,13 +82,6 @@
         });
 
         const result = await response.json();
-
-        /*if (result.success) {
-          window.location.href = '../app/views/Inicio.php';
-        } else {
-          errorBox.textContent = result.message || 'Usuario o contraseña incorrectos.';
-        }*/
-
         if (result.success) {
           // Redirigir según el rol
           switch (result.rol) {

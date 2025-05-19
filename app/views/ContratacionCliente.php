@@ -5,7 +5,7 @@
     <!-- Configuración básica del documento -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Metas de empleados</title>
+    <title>Contratación</title>
 
     <!-- Iconos de Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
@@ -26,23 +26,25 @@
     <div class="topbar">
         <!-- Logo con enlace -->
         <div class="logo">
+            <a href="Principal_RRHH.php">
                 <img src="https://pixelforgestudio.com/wp-content/uploads/2024/11/Pixel-Forge-Studio-Header-Logo.png" alt="LogoPixelForge" />
+            </a>
         </div>
 
         <!-- Título del módulo o página -->
         <div class="topbar-left">
-            <label>Metas de <br>empleados</label>
+            <label>Contratación</label>
         </div>
 
         <!-- Navegación principal en pantallas grandes -->
         <div class="topbar-center">
             <nav class="nav-links">
-                <a href="beneficio.php">Bienestar</a>
+                <a href="">Bienestar</a>
+                <a href="ProgresoCliente.php">Progreso</a>
                 <a href="">Cursos</a>
+                <a href="ContratacionCliente.php">Contratación</a>
                 <a href="">Tour virtual</a>
                 <a href="Metas_Empleados.php">Metas</a>
-                <a href="Nomina.php">Nómina</a>
-                <a href="Perfil.php">Editar Perfiles</a>
             </nav>
         </div>
 
@@ -58,6 +60,7 @@
                 <div class="input-container" id="usuario">
                     <i class="fa-solid fa-user"></i>
                     <div class="menu-desplegable" id="menu">
+                        <a href="Perfil.php">Perfil</a>
                         <a href="/public/logout.php">Cerrar sesión</a>
                     </div>
                 </div>
@@ -68,70 +71,67 @@
 
     <!-- MENÚ MÓVIL: Se muestra en dispositivos pequeños -->
     <nav class="mobile-menu" id="mobileNav">
-        <a href="Nomina.php">Nómina</a>
-        <a href="Progreso.php">Progreso</a>
-        <a href="Metas_Empleados.php">Metas de empleados</a>
-        <a href="Contratacion.php">Contratación</a>
-        <a href="Beneficios_Metas.php">Beneficios por metas</a>
+        <a href="">Bienestar</a>
+        <a href="ProgresoCliente.php">Progreso</a>
+        <a href="">Cursos</a>
+        <a href="ContratacionCliente.php">Contratación</a>
+        <a href="">Tour virtual</a>
+        <a href="Metas_Empleados.php">Metas</a>
     </nav>
 
     <!-- CONTENIDO PRINCIPAL -->
     <main class="inicio-container">
+        <!-- Sección del logo -->
+        <div class="logo-container">
+            <img src="https://pixelforgestudio.com/wp-content/uploads/2023/05/Pixel-Forge-Studio-Logo.png" alt="LogoPixelForge" />
+        </div>
 
         <!-- Sección del texto principal -->
         <div class="texto-container">
-            <h1>Lorem ipsum.</h1>
-            <p>
+
+            <div class="container">
+                <h1>Formulario de Contrato</h1>
+                <form method="POST" action="">
+                    <br><input type="hidden" name="action" value="procesar">
+                    <label for="id">ID:</label></br>
+                    <input type="number" id="id" name="id" required>
+                    <br><label for="nombre">Nombre:</label></br>
+                    <input type="text" id="nombre" name="nombre" required>
+                    <br><label for="departamento">Departamento:</label></br>
+                    <input type="text" id="departamento" name="departamento" required>
+                    <br><label for="fechaIngreso">Fecha de Ingreso:</label></br>
+                    <input type="date" id="fechaIngreso" name="fechaIngreso" required>
+                    <br><label for="tipo">Tipo de Contrato:</label></br>
+                    <input type="text" id="tipo" name="tipo" required>
+                    <br><label for="contenido">Contenido:</label></br>
+                    <textarea id="contenido" name="contenido" required></textarea>
+                    <br><label for="firma">Firma:</label></br>
+                    <input type="text" id="firma" name="firma" required>
+                    <button type="submit">Enviar</button>
+                </form>
 
                 <?php
-                // Incluye el archivo de configuración de la base de datos
-                require_once('../../config/database.php');
 
-                try {
-                    // Obtiene la conexión a la base de datos
-                    $db = Database::getDbConnection();
+                require_once '../controllers/ControladorRecursosHumanos.php';
+                require_once '../models/RecursosHumanos.php';
+                require_once '../models/Empleado.php';
+                require_once '../models/Contrato.php';
+                require_once '../../config/database.php';
 
-                    // Modifica la consulta SQL para contar la cantidad de empleados por curso
-                    $sql = "SELECT c.curso_id, c.titulo AS nombre_curso, COUNT(p.empleado_id) AS cantidad_empleados
-                    FROM cursos c
-                    LEFT JOIN progreso p ON c.curso_id = p.curso_id
-                    GROUP BY c.curso_id, c.titulo"; // Agrupamos por curso_id y nombre_curso
+                use controllers\ControladorRecursosHumanos;
+                use models\RecursosHumanos;
+                use database; // Usamos la clase Database
+                // Obtener la conexión a la base de datos usando el patrón Singleton
+                $db = Database::getInstance();
+                $conn = $db->getConnection();
 
-
-                    // Prepara la consulta
-                    $stmt = $db->prepare($sql);
-
-                    // Ejecuta la consulta
-                    $stmt->execute();
-
-                    // Obtiene los resultados
-                    $resultados = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-                    // Muestra los resultados en una tabla
-                    if (count($resultados) > 0) {
-                        echo "<table>";
-                        echo "<thead><tr><th>ID Curso</th><th>Nombre Curso</th><th>Cantidad de Empleados</th></tr></thead>";
-                        echo "<tbody>";
-                        foreach ($resultados as $resultado) {
-                            echo "<tr>";
-                            echo "<td>" . $resultado['curso_id'] . "</td>";
-                            echo "<td>" . $resultado['nombre_curso'] . "</td>";
-                            echo "<td>" . $resultado['cantidad_empleados'] . "</td>";
-                            echo "</tr>";
-                        }
-                        echo "</tbody>";
-                        echo "</table>";
-                    } else {
-                        echo "No se encontraron registros de cursos.";
-                    }
-                } catch (PDOException $e) {
-                    // Maneja errores de la base de datos
-                    error_log("Error al obtener la cantidad de empleados por curso: " . $e->getMessage());
-                    echo "Error al obtener la cantidad de empleados por curso: " . $e->getMessage();
+                if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['action'] === 'procesar') {
+                    $rh = new RecursosHumanos($conn); // Pasamos la conexión al constructor
+                    $resultado = $rh->procesarContrato($_POST);
+                    echo $resultado;
                 }
                 ?>
-
-            </p>
+            </div>
         </div>
     </main>
 

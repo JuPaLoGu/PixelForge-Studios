@@ -1,5 +1,6 @@
 <?php
 namespace Model;
+require_once 'Conexion.php';
 
 class Progreso {
     private int $empleadoID;
@@ -11,12 +12,13 @@ class Progreso {
     }
 
     public function obtenerPorcentaje(): float {
-        $stmt = $this->db->prepare('SELECT porcentaje FROM progreso WHERE empleado_id = ? ORDER BY id DESC LIMIT 1');
+        $stmt = $this->db->prepare('SELECT porcentaje FROM progreso WHERE empleado_id = ? ORDER BY progreso_id DESC LIMIT 1');
         $stmt->bind_param('i', $this->empleadoID);
         $stmt->execute();
-        $stmt->bind_result($p);
+        $stmt->bind_result($porcentaje);
         $stmt->fetch();
         $stmt->close();
-        return $p ?? 0.0;
+        return $porcentaje ?? 0.0;
     }
 }
+?>

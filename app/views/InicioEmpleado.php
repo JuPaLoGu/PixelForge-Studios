@@ -30,8 +30,7 @@ if (!isset($_SESSION['user'])) {
         </div>
         <div class="topbar-center">
             <nav>
-                <a href="beneficio.php">Bienestar</a>
-                <a href="">Talleres</a>
+                <a href="Programas_Bienestar.php">Bienestar</a>
                 <a href="">Cursos</a>
                 <a href="">Tour virtual</a>
                 <a href="Metas_Empleados.php">Metas</a>

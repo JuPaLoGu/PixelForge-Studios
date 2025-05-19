@@ -26,7 +26,7 @@
     <div class="topbar">
         <!-- Logo con enlace -->
         <div class="logo">
-                <img src="https://pixelforgestudio.com/wp-content/uploads/2024/11/Pixel-Forge-Studio-Header-Logo.png" alt="LogoPixelForge" />
+            <img src="https://pixelforgestudio.com/wp-content/uploads/2024/11/Pixel-Forge-Studio-Header-Logo.png" alt="LogoPixelForge" />
         </div>
 
         <!-- Título del módulo o página -->
@@ -69,11 +69,12 @@
 
     <!-- MENÚ MÓVIL: Se muestra en dispositivos pequeños -->
     <nav class="mobile-menu" id="mobileNav">
+        <a href="beneficio.php">Bienestar</a>
+        <a href="#">Cursos</a>
+        <a href="#">Tour virtual</a>
+        <a href="Metas_Empleados.php">Metas</a>
         <a href="Nomina.php">Nómina</a>
-        <a href="Progreso.php">Progreso</a>
-        <a href="Metas_Empleados.php">Metas de empleados</a>
-        <a href="Contratacion.php">Contratación</a>
-        <a href="Beneficios_Metas.php">Beneficios por metas</a>
+        <a href="Perfil.php">Editar Perfiles</a>
     </nav>
 
     <!-- CONTENIDO PRINCIPAL -->
@@ -85,17 +86,70 @@
 
         <!-- Sección del texto principal -->
         <div class="texto-container">
-            <h1>Lorem ipsum.</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipiscing elit fermentum eu scelerisque, erat consequat turpis
-                commodo massa rutrum torquent fames dictumst,
-                elementum feugiat placerat justo sollicitudin malesuada dui faucibus condimentum. Condimentum lobortis
-                venenatis posuere facilisi cum eu porta iaculis
-                convallis sociis vehicula tellus laoreet, egestas tempor mollis fermentum ornare augue aenean donec
-                euismod purus potenti consequat. Non vel congue feugiat
-                pellentesque iaculis erat hac parturient, in dui habitant duis nulla sem auctor augue, senectus
-                convallis natoque sed cursus proin nam. Accumsan tempus id
-                primis luctus cum hac dictumst volutpat, massa cubilia aliquet senectus nulla euismod taciti ligula,
-                fringilla duis habitant ornare et tristique lobortis.</p>
+            <h1>Reporte de Nómina de Cursos Terminados</h1>
+
+            <?php
+            require_once '../../config/database.php';
+
+            try {
+                // Conexión a la base de datos
+                $db = Database::getInstance();
+                $pdo = $db->getConnection();
+
+                // Consulta SQL para obtener los usuarios que han terminado el curso
+                // La tabla 'progreso' contiene la información sobre el estado del curso.
+                $sql = "SELECT u.id, u.username, c.titulo
+                FROM users u
+                INNER JOIN progreso p ON u.id = p.empleado_id
+                INNER JOIN cursos c ON p.curso_id = c.curso_id
+                WHERE p.porcentaje = 100";
+
+                // Preparar la consulta
+                $stmt = $pdo->prepare($sql);
+
+                // Ejecutar la consulta
+                $stmt->execute();
+
+                // Obtener todos los resultados como un array asociativo
+                $usuarios_terminaron_curso = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                // Verificar si se encontraron usuarios
+                if (count($usuarios_terminaron_curso) > 0) {
+            ?>
+                    <div class="bg-white shadow-md rounded-lg overflow-x-auto">
+                        <table class="min-w-full leading-normal shadow-md rounded-lg overflow-hidden">
+                            <thead class="bg-gray-200 text-gray-700">
+                                <tr>
+                                    <th class="px-5 py-3 border-b-2 border-gray-200 text-left text-xs font-semibold uppercase tracking-wider">ID de Usuario</th>
+                                    <th class="px-5 py-3 border-b-2 border-gray-200 text-left text-xs font-semibold uppercase tracking-wider">Nombre</th>
+                                    <th class="px-5 py-3 border-b-2 border-gray-200 text-left text-xs font-semibold uppercase tracking-wider">Apellido</th>
+                                    <th class="px-5 py-3 border-b-2 border-gray-200 text-left text-xs font-semibold uppercase tracking-wider">Nombre del Curso</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white">
+                                <?php foreach ($usuarios_terminaron_curso as $usuario) { ?>
+                                    <tr>
+                                        <td class="px-5 py-5 border-b border-gray-200 text-sm"><?php echo $usuario['id']; ?></td>
+                                        <td class="px-5 py-5 border-b border-gray-200 text-sm"><?php echo $usuario['nombre']; ?></td>
+                                        <td class="px-5 py-5 border-b border-gray-200 text-sm"><?php echo $usuario['apellido']; ?></td>
+                                        <td class="px-5 py-5 border-b border-gray-200 text-sm"><?php echo $usuario['nombre_curso']; ?></td>
+                                    </tr>
+                                <?php } ?>
+                            </tbody>
+                        </table>
+                    </div>
+            <?php
+                } else {
+                    echo "<p class='text-center text-gray-500 py-4'>Ningun usuario a completado un curso.</p>";
+                }
+            } catch (PDOException $e) {
+                echo "<div class='bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative' role='alert'>
+                <strong class='font-bold'>Error:</strong>
+                <span class='block sm:inline'>Ocurrió un error al consultar la base de datos: " . $e->getMessage() . "</span>
+              </div>";
+            }
+            ?>
+
         </div>
     </main>
 

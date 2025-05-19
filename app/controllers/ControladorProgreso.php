@@ -1,6 +1,8 @@
 <?php
 namespace Controller;
 
+require_once '../models/Button.php';
+require_once '../models/Progreso.php';
 use Model\Button;
 use Model\Progreso;
 
@@ -14,6 +16,6 @@ class ControladorProgreso {
         ];
         $progreso = new Progreso(1);
         $porcentaje = $progreso->obtenerPorcentaje();
-        include __DIR__ . '/../view/progreso.php';
+        //include '../views/Progreso.php';
     }
 }
