@@ -31,10 +31,9 @@ if (!isset($_SESSION['user'])) {
         <div class="topbar-center">
             <nav>
                 <a href="Programas_Bienestar.php">Bienestar</a>
-                <a href="">Cursos</a>
-                <a href="">Tour virtual</a>
+                <a href="../../ModuloCursos/Cursos_VirtualesAdmin.php">Cursos</a>
                 <a href="Metas_Empleados.php">Metas</a>
-                <a href="CrearNomina.php">Nómina</a>
+                <a href="Nomina.php">Nómina</a>
                 <a href="Perfil.php">Editar Perfiles</a>
 
 
@@ -55,12 +54,10 @@ if (!isset($_SESSION['user'])) {
             <img src="https://pixelforgestudio.com/wp-content/uploads/2023/05/Pixel-Forge-Studio-Logo.png" alt="LogoPixelForge">
         </div>
         <div class="texto-container">
-            <h1>Lorem ipsum.</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipiscing elit fermentum eu scelerisque, erat consequat turpis commodo massa rutrum torquent fames dictumst,
-                elementum feugiat placerat justo sollicitudin malesuada dui faucibus condimentum. Condimentum lobortis venenatis posuere facilisi cum eu porta iaculis
-                convallis sociis vehicula tellus laoreet, egestas tempor mollis fermentum ornare augue aenean donec euismod purus potenti consequat. Non vel congue feugiat
-                pellentesque iaculis erat hac parturient, in dui habitant duis nulla sem auctor augue, senectus convallis natoque sed cursus proin nam. Accumsan tempus id
-                primis luctus cum hac dictumst volutpat, massa cubilia aliquet senectus nulla euismod taciti ligula, fringilla duis habitant ornare et tristique lobortis.</p>
+            <h1>Pixel Forge Studios: Forjando Mundos Digitales.</h1>
+            <p>Somos un estudio de desarrollo de videojuegos apasionado por crear experiencias inmersivas para múltiples plataformas:
+                PC, consolas y dispositivos móviles. Impulsados por el éxito de nuestros títulos más recientes, estamos construyendo una 
+                base sólida para un futuro aún más emocionante.</p>
         </div>
     </main>
 

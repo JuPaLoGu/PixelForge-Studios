@@ -26,7 +26,7 @@
     <div class="topbar">
         <!-- Logo con enlace -->
         <div class="logo">
-            <a href="Principal_RRHH.php">
+            <a href="InicioCliente.php">
                 <img src="https://pixelforgestudio.com/wp-content/uploads/2024/11/Pixel-Forge-Studio-Header-Logo.png" alt="LogoPixelForge" />
             </a>
         </div>
@@ -39,12 +39,10 @@
         <!-- Navegación principal en pantallas grandes -->
         <div class="topbar-center">
             <nav class="nav-links">
-                <a href="">Bienestar</a>
+                <a href="Programas_BienestarCliente.php">Bienestar</a>
                 <a href="ProgresoCliente.php">Progreso</a>
-                <a href="">Cursos</a>
-                <a href="ContratacionCliente.php">Contratación</a>
-                <a href="">Tour virtual</a>
-                <a href="Metas_Empleados.php">Metas</a>
+                <a href="../../ModuloCursos/Cursos_Virtuales.php">Cursos</a>
+                <a href="">Contratación</a>
             </nav>
         </div>
 
@@ -60,7 +58,6 @@
                 <div class="input-container" id="usuario">
                     <i class="fa-solid fa-user"></i>
                     <div class="menu-desplegable" id="menu">
-                        <a href="Perfil.php">Perfil</a>
                         <a href="/public/logout.php">Cerrar sesión</a>
                     </div>
                 </div>
@@ -71,12 +68,10 @@
 
     <!-- MENÚ MÓVIL: Se muestra en dispositivos pequeños -->
     <nav class="mobile-menu" id="mobileNav">
-        <a href="">Bienestar</a>
+        <a href="Programas_BienestarCliente.php">Bienestar</a>
         <a href="ProgresoCliente.php">Progreso</a>
-        <a href="">Cursos</a>
+        <a href="../../ModuloCursos/Cursos_Virtuales.php">Cursos</a>
         <a href="ContratacionCliente.php">Contratación</a>
-        <a href="">Tour virtual</a>
-        <a href="Metas_Empleados.php">Metas</a>
     </nav>
 
     <!-- CONTENIDO PRINCIPAL -->

@@ -24,8 +24,10 @@
 
     <div class="topbar">
         <div class="logo">
+            <a href="InicioEmpleado.php">
             <img src="https://pixelforgestudio.com/wp-content/uploads/2024/11/Pixel-Forge-Studio-Header-Logo.png"
                 alt="LogoPixelForge">
+            </a>
         </div>
 
         <!-- Menú hamburguesa para pantallas pequeñas -->
@@ -35,9 +37,8 @@
 
         <div class="topbar-center">
             <nav class="nav-links">
-                <a href="beneficio.php">Bienestar</a>
-                <a href="#">Cursos</a>
-                <a href="#">Tour virtual</a>
+                <a href="Programas_Bienestar.php">Bienestar</a>
+                <a href="../../ModuloCursos/Cursos_VirtualesAdmin.php">Cursos</a>
                 <a href="Metas_Empleados.php">Metas</a>
                 <a href="Nomina.php">Nómina</a>
                 <a href="Perfil.php">Editar Perfiles</a>
@@ -105,7 +106,7 @@
 
     <!-- Script de funcionalidad responsiva -->
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
+        document.addEventListener("DOMContentLoaded", function() {
             const usuario = document.getElementById("usuario");
             const menu = document.getElementById("menu");
             const toggleBtn = document.querySelector(".menu-toggle");
@@ -132,14 +133,14 @@
                 }
             }
 
-            usuario.addEventListener("click", function (e) {
+            usuario.addEventListener("click", function(e) {
                 e.stopPropagation();
                 const isOpen = usuario.classList.toggle("show-menu");
                 usuario.classList.toggle("active");
                 usuario.style.color = isOpen ? "#f73d66" : "";
             });
 
-            document.addEventListener("click", function (e) {
+            document.addEventListener("click", function(e) {
                 const clickEnUsuario = usuario.contains(e.target);
                 const clickEnMenuHamburguesa = toggleBtn.contains(e.target) || mobileNav.contains(e.target);
 
@@ -152,7 +153,7 @@
                 }, 0);
             });
 
-            toggleBtn.addEventListener("click", function (e) {
+            toggleBtn.addEventListener("click", function(e) {
                 e.stopPropagation();
 
                 if (document.body.classList.contains("menu-open")) {

@@ -26,7 +26,9 @@
     <div class="topbar">
         <!-- Logo con enlace -->
         <div class="logo">
+            <a href="InicioCliente.php">
             <img src="https://pixelforgestudio.com/wp-content/uploads/2024/11/Pixel-Forge-Studio-Header-Logo.png" alt="LogoPixelForge" />
+            </a>
         </div>
 
         <!-- Título del módulo o página -->
@@ -37,10 +39,10 @@
         <!-- Navegación principal en pantallas grandes -->
         <div class="topbar-center">
             <nav class="nav-links">
-                <a href="beneficio.php">Bienestar</a>
+                <a href="Programas_BienestarCliente.php">Bienestar</a>
                 <a href="ProgresoCliente.php">Progreso</a>
-                <a href="">Cursos</a>
-                <a href="">Tour virtual</a>
+                <a href="../../ModuloCursos/Cursos_Virtuales.php">Cursos</a>
+                <a href="ContratacionCliente.php">Contrato</a>
             </nav>
         </div>
 
@@ -49,7 +51,7 @@
             <!-- Botón hamburguesa para menú móvil -->
             <div class="menu-toggle" id="menuToggle">
                 <i class="fa fa-bars" id="menuIcon"></i>
-                 <a href="../../public/logout.php">Cerrar sesión</a>
+                <a href="../../public/logout.php">Cerrar sesión</a>
             </div>
 
             <!-- Usuario con ícono y nombre + menú desplegable -->
@@ -67,11 +69,10 @@
 
     <!-- MENÚ MÓVIL: Se muestra en dispositivos pequeños -->
     <nav class="mobile-menu" id="mobileNav">
-        <a href="Nomina.php">Nómina</a>
-        <a href="Progreso.php">Progreso</a>
-        <a href="Metas_Empleados.php">Metas de empleados</a>
-        <a href="Contratacion.php">Contratación</a>
-        <a href="Beneficios_Metas.php">Beneficios por metas</a>
+        <a href="Programas_BienestarCliente.php">Bienestar</a>
+        <a href="ProgresoCliente.php">Progreso</a>
+        <a href="../../ModuloCursos/Cursos_Virtuales.php">Cursos</a>
+        <a href="../app/views/ContratacionCliente.php">Contrato</a>
     </nav>
 
     <!-- CONTENIDO PRINCIPAL -->
