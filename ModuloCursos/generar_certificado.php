@@ -4,7 +4,7 @@ define('FPDF_FONTPATH', __DIR__ . '/fpdf/font/');
 
 require('fpdf/fpdf.php'); // Asegúrate de tener la librería FPDF en esa carpeta
 
-$conexion = new mysqli("localhost", "root", "", "pixelforgestudios1");
+$conexion = new mysqli("localhost", "root", "", "pixelforgestudios");
 $conexion->set_charset("utf8");
 
 $empleado_id = $_GET['empleado_id'] ?? null;
@@ -30,8 +30,8 @@ if ($datos['total_modulos'] != $datos['modulos_aprobados']) {
 }
 
 // Obtener nombre del empleado y del curso
-$empleado = $conexion->query("SELECT nombre FROM empleados WHERE id = $empleado_id")->fetch_assoc();
-$curso = $conexion->query("SELECT titulo FROM cursos WHERE id = $curso_id")->fetch_assoc();
+$empleado = $conexion->query("SELECT nombre FROM empleados WHERE empleado_id = $empleado_id")->fetch_assoc();
+$curso = $conexion->query("SELECT titulo FROM cursos WHERE curso_id = $curso_id")->fetch_assoc();
 
 $nombre_empleado = $empleado['nombre'];
 $titulo_curso = $curso['titulo'];
