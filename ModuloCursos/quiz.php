@@ -59,8 +59,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt4->execute();
         $stmt4->close();
     } else {
-        $stmt5 = $conexion->prepare("INSERT INTO examenes (empleado_id, id_curso, id_modulo, puntaje, aprobado) VALUES (?, ?, ?, ?, ?)");
-        $stmt5->bind_param("iiiid", $empleado_id, $id_curso, $id_modulo, $porcentaje, $aprobado);
+        /*$stmt5 = $conexion->prepare("INSERT INTO examenes (empleado_id, id_curso, id_modulo, puntaje, aprobado) VALUES (?, ?, ?, ?, ?)");
+        $stmt5->bind_param("iiiid", $empleado_id, $id_curso, $id_modulo, $porcentaje, $aprobado);*/
+
+        // MODIFICACIÓN: Ya no se incluye 'id_curso' en el INSERT Statement
+        // Se añade 'fecha_examen' a la lista de columnas y se usa 'NOW()' para la fecha actual.
+        $stmt5 = $conexion->prepare("INSERT INTO examenes (empleado_id, id_modulo, puntaje, aprobado, fecha_examen) VALUES (?, ?, ?, ?, NOW())");
+        
+        // MODIFICACIÓN: Se quita el parámetro '$id_curso' del bind_param.
+        // Los tipos de los parámetros: i (empleado_id), i (id_modulo), d (puntaje - porque es porcentaje), i (aprobado - que es 0 o 1)
+        $stmt5->bind_param("iidi", $empleado_id, $id_modulo, $porcentaje, $aprobado); 
         $stmt5->execute();
         $stmt5->close();
     }
@@ -81,33 +89,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $next_result = $stmt_next->get_result();
 
         if ($next_module = $next_result->fetch_assoc()) {
-    $siguiente_modulo_id = $next_module['id'];
-     $resultado_mensaje .= "<form method='get' action='avance_curso.php'>";
-$resultado_mensaje .= "<input type='hidden' name='curso_id' value='$id_curso'>";
-    $resultado_mensaje .= "<input type='hidden' name='empleado_id' value='$empleado_id'>";
-    $resultado_mensaje .= "<input type='hidden' name='modulo_desbloqueado' value='$siguiente_modulo_id'>";
-    $resultado_mensaje .= "<button type='submit'>Ir al contenido del curso</button>";
-    $resultado_mensaje .= "</form>";
-}
-else {
+            $siguiente_modulo_id = $next_module['id'];
+            $resultado_mensaje .= "<form method='get' action='avance_curso.php'>";
+            $resultado_mensaje .= "<input type='hidden' name='curso_id' value='$id_curso'>";
+            $resultado_mensaje .= "<input type='hidden' name='empleado_id' value='$empleado_id'>";
+            $resultado_mensaje .= "<input type='hidden' name='modulo_desbloqueado' value='$siguiente_modulo_id'>";
+            $resultado_mensaje .= "<button type='submit'>Ir al contenido del curso</button>";
+            $resultado_mensaje .= "</form>";
+        } else {
             $resultado_mensaje .= "<p style='color:blue;'>Has completado todos los módulos de este curso.</p>";
             $stmt_check = $conexion->prepare("
         SELECT 
             (SELECT COUNT(*) FROM modulos WHERE id_curso = ?) AS total_modulos,
             (SELECT COUNT(*) FROM examenes WHERE id_curso = ? AND empleado_id = ? AND aprobado = 1) AS modulos_aprobados
     ");
-    $stmt_check->bind_param("iii", $id_curso, $id_curso, $empleado_id);
-    $stmt_check->execute();
-    $check_result = $stmt_check->get_result()->fetch_assoc();
-    $stmt_check->close();
+            $stmt_check->bind_param("iii", $id_curso, $id_curso, $empleado_id);
+            $stmt_check->execute();
+            $check_result = $stmt_check->get_result()->fetch_assoc();
+            $stmt_check->close();
 
-    // Si ya aprobó todos los módulos, redirigir a generar certificado
-    if ($check_result['total_modulos'] == $check_result['modulos_aprobados']) {
-        echo "<script>
+            // Si ya aprobó todos los módulos, redirigir a generar certificado
+            if ($check_result['total_modulos'] == $check_result['modulos_aprobados']) {
+                echo "<script>
             window.location.href = 'generar_certificado.php?curso_id=$id_curso&empleado_id=$empleado_id';
         </script>";
-        exit;
-    }
+                exit;
+            }
         }
 
         $stmt_next->close();
@@ -121,10 +128,13 @@ else {
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <title>Quiz del Módulo</title>
+    <link rel="stylesheet" href="leccion.css">
 </head>
+
 <body>
     <h1>Evaluación del Módulo</h1>
 
@@ -140,16 +150,16 @@ else {
             echo "<p><strong>" . htmlspecialchars($pregunta['pregunta']) . "</strong></p>";
 
 
-          $letras = ['a', 'b', 'c', 'd'];
-foreach ($letras as $letra) {
-    $campo_opcion = 'opcion_' . $letra;
-    if (!empty($pregunta[$campo_opcion])) {
-        echo "<label>";
-        echo "<input type='radio' name='respuesta[{$pregunta['id']}]' value='$letra'> ";
-        echo htmlspecialchars($pregunta[$campo_opcion]);
-        echo "</label><br>";
-    }
-}
+            $letras = ['a', 'b', 'c', 'd'];
+            foreach ($letras as $letra) {
+                $campo_opcion = 'opcion_' . $letra;
+                if (!empty($pregunta[$campo_opcion])) {
+                    echo "<label>";
+                    echo "<input type='radio' name='respuesta[{$pregunta['id']}]' value='$letra'> ";
+                    echo htmlspecialchars($pregunta[$campo_opcion]);
+                    echo "</label><br>";
+                }
+            }
 
 
             echo "</div>";
@@ -166,4 +176,5 @@ foreach ($letras as $letra) {
     }
     ?>
 </body>
+
 </html>
