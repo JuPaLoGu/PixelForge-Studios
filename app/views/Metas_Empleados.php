@@ -26,7 +26,9 @@
     <div class="topbar">
         <!-- Logo con enlace -->
         <div class="logo">
+            <a href="InicioEmpleado.php">
                 <img src="https://pixelforgestudio.com/wp-content/uploads/2024/11/Pixel-Forge-Studio-Header-Logo.png" alt="LogoPixelForge" />
+            </a>
         </div>
 
         <!-- Título del módulo o página -->
@@ -37,9 +39,8 @@
         <!-- Navegación principal en pantallas grandes -->
         <div class="topbar-center">
             <nav class="nav-links">
-                <a href="beneficio.php">Bienestar</a>
-                <a href="">Cursos</a>
-                <a href="">Tour virtual</a>
+                <a href="Programas_Bienestar.php">Bienestar</a>
+                <a href="../../ModuloCursos/Cursos_VirtualesAdmin.php">Cursos</a>
                 <a href="Metas_Empleados.php">Metas</a>
                 <a href="Nomina.php">Nómina</a>
                 <a href="Perfil.php">Editar Perfiles</a>

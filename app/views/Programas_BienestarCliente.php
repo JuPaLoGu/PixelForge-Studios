@@ -18,8 +18,10 @@
 
     <div class="topbar">
         <div class="logo">
-                <img src="https://pixelforgestudio.com/wp-content/uploads/2024/11/Pixel-Forge-Studio-Header-Logo.png"
-                    alt="LogoPixelForge">
+            <a href="InicioCliente.php">
+            <img src="https://pixelforgestudio.com/wp-content/uploads/2024/11/Pixel-Forge-Studio-Header-Logo.png"
+                alt="LogoPixelForge">
+            </a>
         </div>
         <div class="topbar-left">
             <label for="">Programas de<br> bienestar</label>
@@ -28,9 +30,8 @@
             <nav>
                 <a href="Programas_BienestarCliente.php">Bienestar</a>
                 <a href="ProgresoCliente.php">Progreso</a>
-                <a href="">Cursos</a>
-                <a href="ContratacionCliente.php">Contratación</a>
-                <a href="">Tour virtual</a>
+                <a href="../../ModuloCursos/Cursos_Virtuales.php">Cursos</a>
+                <a href="ContratacionCliente.php">Contrato</a>
             </nav>
 
         </div>
