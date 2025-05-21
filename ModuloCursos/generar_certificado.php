@@ -29,6 +29,7 @@ if ($datos['total_modulos'] != $datos['modulos_aprobados']) {
     die("Aún no ha completado todos los módulos requeridos.");
 }
 
+<<<<<<< HEAD
 
 // Obtener nombre del empleado y del curso
 
@@ -57,13 +58,30 @@ class PDF extends FPDF
 {
     function Header()
     {
+=======
+// Obtener nombre del empleado y del curso
+$empleado = $conexion->query("SELECT nombre FROM empleados WHERE empleado_id = $empleado_id")->fetch_assoc();
+$curso = $conexion->query("SELECT titulo FROM cursos WHERE curso_id = $curso_id")->fetch_assoc();
+
+$nombre_empleado = $empleado['nombre'];
+$titulo_curso = $curso['titulo'];
+$fecha = date("d/m/Y");
+
+// Crear el certificado PDF
+class PDF extends FPDF {
+    function Header() {
+>>>>>>> origin/Jaime_Novoa
         $this->SetFont('Arial', 'B', 16);
         $this->Cell(0, 10, utf8_decode('PIXEL FORGE STUDIO'), 0, 1, 'C');
         $this->Ln(10);
     }
 
+<<<<<<< HEAD
     function Footer()
     {
+=======
+    function Footer() {
+>>>>>>> origin/Jaime_Novoa
         $this->SetY(-20);
         $this->SetFont('Arial', 'I', 10);
         $this->Cell(0, 10, utf8_decode('Certificado generado automáticamente'), 0, 0, 'C');
@@ -89,3 +107,7 @@ $pdf->Cell(0, 10, utf8_decode("Firma del Instructor"), 0, 1, 'C');
 
 // Descargar el PDF
 $pdf->Output("I", "certificado_$nombre_empleado.pdf");
+<<<<<<< HEAD
+=======
+?>
+>>>>>>> origin/Jaime_Novoa

@@ -48,12 +48,16 @@ $modulos = $stmt3->get_result();
 
 <!DOCTYPE html>
 <html lang="es">
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/Jaime_Novoa
 <head>
     <meta charset="UTF-8">
     <title>Avance del Curso: <?php echo htmlspecialchars($curso_info['titulo']); ?></title>
     <link rel="stylesheet" href="avance.css">
 </head>
+<<<<<<< HEAD
 
 <body>
     <div class="tarjeta"> <!-- INICIO DE LA TARJETA -->
@@ -99,16 +103,64 @@ $modulos = $stmt3->get_result();
         </div>
 
     </div> <!-- FIN DE LA TARJETA -->
+=======
+ 
+<body>
+<div class="tarjeta"> <!-- INICIO DE LA TARJETA -->
+
+    <h1><?php echo htmlspecialchars($curso_info['titulo']); ?></h1>
+    <p><?php echo htmlspecialchars($curso_info['descripcion']); ?></p>
+
+    <?php if ($modulos->num_rows > 0): ?>
+        <h2>Temario</h2>
+        <ul>
+        <?php while ($modulo = $modulos->fetch_assoc()): ?>
+            <li>
+                <strong><?php echo htmlspecialchars($modulo['titulo']); ?></strong>
+                <ul>
+                <?php
+                $sql_lecciones = "SELECT id, titulo FROM lecciones WHERE id_modulo = ? ORDER BY orden";
+                $stmt4 = $conexion->prepare($sql_lecciones);
+                $stmt4->bind_param("i", $modulo['id']);
+                $stmt4->execute();
+                $lecciones = $stmt4->get_result();
+
+                while ($leccion = $lecciones->fetch_assoc()): ?>
+                    <li>
+                        <a href="leccion.php?id=<?php echo $leccion['id']; ?>&curso_id=<?php echo $curso_id; ?>&empleado_id=<?php echo $empleado_id; ?>">
+                            <?php echo htmlspecialchars($leccion['titulo']); ?>
+                        </a>
+                    </li>
+                <?php endwhile; ?>
+                <?php $stmt4->close(); ?>
+                </ul>
+            </li>
+        <?php endwhile; ?>
+        </ul>
+    <?php else: ?>
+        <p>Este curso no tiene módulos aún.</p>
+    <?php endif; ?>
+
+</div> <!-- FIN DE LA TARJETA -->
+>>>>>>> origin/Jaime_Novoa
 </body>
 
 
 
 
 
+<<<<<<< HEAD
 
+=======
+              
+>>>>>>> origin/Jaime_Novoa
 </html>
 
 <?php
 $stmt3->close();
 $conexion->close();
+<<<<<<< HEAD
 ?>
+=======
+?>
+>>>>>>> origin/Jaime_Novoa

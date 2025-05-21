@@ -40,6 +40,10 @@
         <div class="topbar-center">
             <nav class="nav-links">
                 <a href="Programas_BienestarCliente.php">Bienestar</a>
+<<<<<<< HEAD
+=======
+                <a href="ProgresoCliente.php">Progreso</a>
+>>>>>>> origin/Jaime_Novoa
                 <a href="../../ModuloCursos/Cursos_Virtuales.php">Cursos</a>
                 <a href="">Contratación</a>
             </nav>

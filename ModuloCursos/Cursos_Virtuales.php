@@ -27,6 +27,10 @@
         <div class="topbar-center">
             <nav>
                 <a href="../app/views/Programas_BienestarCliente.php">Bienestar</a>
+<<<<<<< HEAD
+=======
+                <a href="../app/views/ProgresoCliente.php">Progreso</a>
+>>>>>>> origin/Jaime_Novoa
                 <a href="">Cursos</a>
                 <a href="../app/views/ContratacionCliente.php">Contratación</a>
             </nav>

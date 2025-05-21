@@ -19,8 +19,13 @@
     <div class="topbar">
         <div class="logo">
             <a href="InicioCliente.php">
+<<<<<<< HEAD
                 <img src="https://pixelforgestudio.com/wp-content/uploads/2024/11/Pixel-Forge-Studio-Header-Logo.png"
                     alt="LogoPixelForge">
+=======
+            <img src="https://pixelforgestudio.com/wp-content/uploads/2024/11/Pixel-Forge-Studio-Header-Logo.png"
+                alt="LogoPixelForge">
+>>>>>>> origin/Jaime_Novoa
             </a>
         </div>
         <div class="topbar-left">
@@ -29,6 +34,10 @@
         <div class="topbar-center">
             <nav>
                 <a href="Programas_BienestarCliente.php">Bienestar</a>
+<<<<<<< HEAD
+=======
+                <a href="ProgresoCliente.php">Progreso</a>
+>>>>>>> origin/Jaime_Novoa
                 <a href="../../ModuloCursos/Cursos_Virtuales.php">Cursos</a>
                 <a href="ContratacionCliente.php">Contrato</a>
             </nav>

@@ -118,7 +118,11 @@
     <div class="topbar">
         <div class="logo">
             <a href="InicioEmpleado.php">
+<<<<<<< HEAD
                 <img src="https://pixelforgestudio.com/wp-content/uploads/2024/11/Pixel-Forge-Studio-Header-Logo.png" alt="LogoPixelForge" />
+=======
+            <img src="https://pixelforgestudio.com/wp-content/uploads/2024/11/Pixel-Forge-Studio-Header-Logo.png" alt="LogoPixelForge" />
+>>>>>>> origin/Jaime_Novoa
             </a>
         </div>
 

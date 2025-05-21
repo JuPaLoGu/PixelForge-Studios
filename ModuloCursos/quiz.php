@@ -59,6 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt4->execute();
         $stmt4->close();
     } else {
+<<<<<<< HEAD
         /*$stmt5 = $conexion->prepare("INSERT INTO examenes (empleado_id, id_curso, id_modulo, puntaje, aprobado) VALUES (?, ?, ?, ?, ?)");
         $stmt5->bind_param("iiiid", $empleado_id, $id_curso, $id_modulo, $porcentaje, $aprobado);*/
 
@@ -69,6 +70,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // MODIFICACIÓN: Se quita el parámetro '$id_curso' del bind_param.
         // Los tipos de los parámetros: i (empleado_id), i (id_modulo), d (puntaje - porque es porcentaje), i (aprobado - que es 0 o 1)
         $stmt5->bind_param("iidi", $empleado_id, $id_modulo, $porcentaje, $aprobado); 
+=======
+        $stmt5 = $conexion->prepare("INSERT INTO examenes (empleado_id, id_curso, id_modulo, puntaje, aprobado) VALUES (?, ?, ?, ?, ?)");
+        $stmt5->bind_param("iiiid", $empleado_id, $id_curso, $id_modulo, $porcentaje, $aprobado);
+>>>>>>> origin/Jaime_Novoa
         $stmt5->execute();
         $stmt5->close();
     }
@@ -89,6 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $next_result = $stmt_next->get_result();
 
         if ($next_module = $next_result->fetch_assoc()) {
+<<<<<<< HEAD
             $siguiente_modulo_id = $next_module['id'];
             $resultado_mensaje .= "<form method='get' action='avance_curso.php'>";
             $resultado_mensaje .= "<input type='hidden' name='curso_id' value='$id_curso'>";
@@ -97,12 +103,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $resultado_mensaje .= "<button type='submit'>Ir al contenido del curso</button>";
             $resultado_mensaje .= "</form>";
         } else {
+=======
+    $siguiente_modulo_id = $next_module['id'];
+     $resultado_mensaje .= "<form method='get' action='avance_curso.php'>";
+$resultado_mensaje .= "<input type='hidden' name='curso_id' value='$id_curso'>";
+    $resultado_mensaje .= "<input type='hidden' name='empleado_id' value='$empleado_id'>";
+    $resultado_mensaje .= "<input type='hidden' name='modulo_desbloqueado' value='$siguiente_modulo_id'>";
+    $resultado_mensaje .= "<button type='submit'>Ir al contenido del curso</button>";
+    $resultado_mensaje .= "</form>";
+}
+else {
+>>>>>>> origin/Jaime_Novoa
             $resultado_mensaje .= "<p style='color:blue;'>Has completado todos los módulos de este curso.</p>";
             $stmt_check = $conexion->prepare("
         SELECT 
             (SELECT COUNT(*) FROM modulos WHERE id_curso = ?) AS total_modulos,
             (SELECT COUNT(*) FROM examenes WHERE id_curso = ? AND empleado_id = ? AND aprobado = 1) AS modulos_aprobados
     ");
+<<<<<<< HEAD
             $stmt_check->bind_param("iii", $id_curso, $id_curso, $empleado_id);
             $stmt_check->execute();
             $check_result = $stmt_check->get_result()->fetch_assoc();
@@ -115,6 +133,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </script>";
                 exit;
             }
+=======
+    $stmt_check->bind_param("iii", $id_curso, $id_curso, $empleado_id);
+    $stmt_check->execute();
+    $check_result = $stmt_check->get_result()->fetch_assoc();
+    $stmt_check->close();
+
+    // Si ya aprobó todos los módulos, redirigir a generar certificado
+    if ($check_result['total_modulos'] == $check_result['modulos_aprobados']) {
+        echo "<script>
+            window.location.href = 'generar_certificado.php?curso_id=$id_curso&empleado_id=$empleado_id';
+        </script>";
+        exit;
+    }
+>>>>>>> origin/Jaime_Novoa
         }
 
         $stmt_next->close();
@@ -128,6 +160,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <!DOCTYPE html>
 <html lang="es">
+<<<<<<< HEAD
 
 <head>
     <meta charset="UTF-8">
@@ -135,6 +168,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="leccion.css">
 </head>
 
+=======
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz del Módulo</title>
+</head>
+>>>>>>> origin/Jaime_Novoa
 <body>
     <h1>Evaluación del Módulo</h1>
 
@@ -150,6 +189,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo "<p><strong>" . htmlspecialchars($pregunta['pregunta']) . "</strong></p>";
 
 
+<<<<<<< HEAD
             $letras = ['a', 'b', 'c', 'd'];
             foreach ($letras as $letra) {
                 $campo_opcion = 'opcion_' . $letra;
@@ -160,6 +200,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     echo "</label><br>";
                 }
             }
+=======
+          $letras = ['a', 'b', 'c', 'd'];
+foreach ($letras as $letra) {
+    $campo_opcion = 'opcion_' . $letra;
+    if (!empty($pregunta[$campo_opcion])) {
+        echo "<label>";
+        echo "<input type='radio' name='respuesta[{$pregunta['id']}]' value='$letra'> ";
+        echo htmlspecialchars($pregunta[$campo_opcion]);
+        echo "</label><br>";
+    }
+}
+>>>>>>> origin/Jaime_Novoa
 
 
             echo "</div>";
@@ -176,5 +228,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     ?>
 </body>
+<<<<<<< HEAD
 
 </html>
+=======
+</html>
+>>>>>>> origin/Jaime_Novoa
