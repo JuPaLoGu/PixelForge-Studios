@@ -14,9 +14,7 @@ Crear una plataforma integral de gestión de recursos humanos con las siguientes
 
 🏁 1. Onboarding Digital
 
-📄 Procesos administrativos en línea: Firma de contratos, configuración de herramientas y acceso a repositorios.
-
-🌍 Tour virtual interactivo del estudio con presentación de equipos y proyectos.
+📄 Procesos administrativos en línea: Firma de contratos.
 
 📚 2. Gestión de Formación y Desarrollo
 
@@ -30,11 +28,9 @@ Crear una plataforma integral de gestión de recursos humanos con las siguientes
 
 🏆 Definición de metas creativas y técnicas con revisiones periódicas.
 
-🤝 Evaluación por pares para fomentar la colaboración y el aprendizaje.
-
 💰 4. Gestión de Beneficios y Compensaciones
 
-💵 Integración con sistemas de nómina y beneficios, incluyendo bonos y acceso a eventos de la industria.
+💵 Integración con sistemas de nómina.
 
 🧘 Programas de bienestar como sesiones de mindfulness y talleres de creatividad.
 
@@ -82,11 +78,9 @@ Asegurar la compatibilidad con herramientas de desarrollo de videojuegos.
 
 🛠 Tecnologías Utilizadas
 
-🚀 Frontend: React.js, Vue.js
+Lenguaje: PHP, CSS y JS
 
-📦 Backend: Node.js, Python (Django, Flask)
-
-🗄 Base de datos: PostgreSQL, MongoDB
+🗄 Base de datos: PostgreSQL
 
 🖥 Integraciones: Unity, Unreal Engine, Blender
 
