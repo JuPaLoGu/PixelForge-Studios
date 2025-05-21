@@ -1,0 +1,8 @@
+ vRewriteEngine On
+
+# Si el archivo solicitado no existe, redirige a index.php
+ RewriteCond %{REQUEST_FILENAME} !-f
+ RewriteRule ^ index.php [QSA,L]
+
+# Redirige todas las solicitudes a la carpeta 'public' (si es que usas una carpeta pública para acceder a tus archivos)
+ RewriteRule ^(.*)$ public/$1 [L]
