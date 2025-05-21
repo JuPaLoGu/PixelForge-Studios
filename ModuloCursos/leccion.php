@@ -19,7 +19,6 @@ $stmt = $conexion->prepare("SELECT * FROM lecciones WHERE id = ?");
 $stmt->bind_param("i", $id_leccion);
 $stmt->execute();
 $leccion = $stmt->get_result()->fetch_assoc();
-
 if (!$leccion) {
     echo "Lección no encontrada.";
     exit;
@@ -159,3 +158,4 @@ $stmt->close();
 $stmt2->close();
 $conexion->close();
 ?>
+

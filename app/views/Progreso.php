@@ -87,6 +87,7 @@
             <h1>Lorem ipsum.</h1>
             <h1>Progreso Empleado 1</h1>
             <div class="buttons">
+
                 <?php
                 require_once  '/../controllers/ControladorProgreso.php';
 
@@ -94,6 +95,7 @@
 
                 (new ControladorProgreso())->mostrar();
                 ?>
+
             </div>
         </div>
     </main>

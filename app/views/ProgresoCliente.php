@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -27,7 +29,7 @@
         <!-- Logo con enlace -->
         <div class="logo">
             <a href="InicioCliente.php">
-            <img src="https://pixelforgestudio.com/wp-content/uploads/2024/11/Pixel-Forge-Studio-Header-Logo.png" alt="LogoPixelForge" />
+                <img src="https://pixelforgestudio.com/wp-content/uploads/2024/11/Pixel-Forge-Studio-Header-Logo.png" alt="LogoPixelForge" />
             </a>
         </div>
 
@@ -83,11 +85,12 @@
         </div>
 
         <!-- Sección del texto principal -->
+
         <div class="texto-container">
-            <h1>Lorem ipsum.</h1>
-            <h1>Progreso Empleado 1</h1>
+            <h1>Mi progreso</h1>
+            <!--
             <div class="buttons">
-                <?php
+                <p
                 require_once  '../controllers/ControladorProgreso.php';
 
                 use controller\ControladorProgreso;
@@ -96,6 +99,33 @@
                 ?>
             </div>
         </div>
+        -->
+            <?php if (empty($cursosDelEmpleado)): ?>
+                <p>No hay cursos registrados para usted.</p>
+            <?php else: ?>
+                <?php foreach ($cursosDelEmpleado as $curso): ?>
+                    <div class="course-card">
+                        <h3><?= htmlspecialchars($curso['titulo']) ?></h3>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" style="width: <?= $curso['porcentaje_progreso'] ?>%;">
+                                <?= round($curso['porcentaje_progreso'], 0) ?>%
+                            </div>
+                        </div>
+                        <?php if ($curso['examen_aprobado']) { ?>
+                            <p class="status completed">Estado: Examen Aprobado</p>
+                            <?php if ($curso['examen_puntaje_max'] !== null) { ?>
+                                <p>Puntaje del Examen: <?= htmlspecialchars($curso['examen_puntaje_max']) ?></p>
+                            <?php } ?>
+                        <?php } else { ?>
+                            <p class="status in-progress">Estado: Examen Pendiente</p>
+                            <p>Lecciones: <?= $curso['lecciones_completadas'] ?>/<?= $curso['lecciones_totales'] ?> completadas</p>
+                        <?php } ?>
+                        <a href="/ruta/a/tu/curso.php?curso_id=<?= htmlspecialchars($curso['curso_id']) ?>" class="btn-continue">Ver Curso</a>
+                    </div>
+                <?php endforeach; ?>
+            <?php endif; ?>
+
+
     </main>
 
     <!-- PIE DE PÁGINA -->

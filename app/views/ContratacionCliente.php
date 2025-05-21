@@ -40,7 +40,6 @@
         <div class="topbar-center">
             <nav class="nav-links">
                 <a href="Programas_BienestarCliente.php">Bienestar</a>
-                <a href="ProgresoCliente.php">Progreso</a>
                 <a href="../../ModuloCursos/Cursos_Virtuales.php">Cursos</a>
                 <a href="">Contratación</a>
             </nav>
