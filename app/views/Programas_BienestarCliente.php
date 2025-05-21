@@ -34,10 +34,6 @@
         <div class="topbar-center">
             <nav>
                 <a href="Programas_BienestarCliente.php">Bienestar</a>
-<<<<<<< HEAD
-=======
-                <a href="ProgresoCliente.php">Progreso</a>
->>>>>>> origin/Jaime_Novoa
                 <a href="../../ModuloCursos/Cursos_Virtuales.php">Cursos</a>
                 <a href="ContratacionCliente.php">Contrato</a>
             </nav>
